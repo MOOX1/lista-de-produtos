@@ -18,27 +18,32 @@ const write = (cb) => {
 
 http
   .createServer((req, res) => {
-    const { id, line,url_thumbnail , description, del, create } = URL.parse(req.url, true).query;
+    const { id, line, url_thumbnail, description, del, create } = URL.parse(
+      req.url,
+      true
+    ).query;
 
     res.writeHead(200, {
-      "Access-Control-Allow-Origin": "*"
-    })
+      "Access-Control-Allow-Origin": "*",
+    });
 
     //all recurces
-    if (!line || !url_thumbnail || !description  ) {
+    if (!line || !url_thumbnail || !description) {
       if (!id) {
-        return res.end(JSON.stringify({ data, id : Math.random()}));
+        return res.end(JSON.stringify({ data, id: Math.random() }));
       } else {
-        return res.end(JSON.stringify({data,  id : id}));
+        return res.end(JSON.stringify({ data, id: id }));
       }
     }
 
     if (del) {
-      data.materials = data.materials.filter((item) => String(item.id) !== String(id));
+      data.materials = data.materials.filter(
+        (item) => String(item.id) !== String(id)
+      );
       return write((message) => res.end(message));
     }
-    data.materials.push({description, url_thumbnail, line, id})
+    data.materials.push({ description, url_thumbnail, line, id });
 
-    return write((message) => res.end(message))
+    return write((message) => res.end(message));
   })
   .listen(3001, () => console.log("API is running"));
