@@ -3,21 +3,23 @@ import { useEffect } from "react";
 import List from "./components/List/List";
 import { Response } from "./types/response";
 import Search from "./components/search/Seach";
+import Modal from "./components/Modal/modal";
 
 
-export const materialsContext = React.createContext<Response>({});
+
+export  const materialsContext = React.createContext<Response>({});
 
 export default function Home() {
   const [response, setResponse] = useState<Response>();
 
-  const Aperta = () => {
+  const PegandoDandos = () => {
     fetch("http://localhost:3001/")
       .then((response) => response.json())
       .then((response : Response) => setResponse(response));
   };
 
   useEffect(() => {
-    Aperta();
+    PegandoDandos();
   }, []);
 
   const HandleOnChange = (e) => {
@@ -33,7 +35,7 @@ export default function Home() {
 
   });
     if (!e.target.value ) {
-      Aperta()
+      PegandoDandos()
     }
     setResponse({data: {materials : materialsFilter}})
   };

@@ -2,7 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { materialsContext } from "../../index";
 import { materials } from "../../types/materials";
 import { Response } from "../../types/response";
-const List = () => {
+import Modal from "../Modal/modal";
+const List = (props) => {
   const response = useContext<Response>(materialsContext);
   const [materials, setMaterials] = useState<materials>();
 
@@ -24,6 +25,7 @@ const List = () => {
           </div>
           <div className="title">{item.description}</div>
           <div>{item.line}</div>
+          <Modal text="EDIT" id={item} />
         </li>
       ))}
     </ul>
