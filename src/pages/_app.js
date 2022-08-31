@@ -1,10 +1,10 @@
-import materialContext from "./index"
+import MaterialContext from "../pages/Home/index"
 import '../styles/List.css'
 function MyApp({ Component, pageProps }) {
   return (
-    <materialContext>
+    <MaterialContext>
     <Component {...pageProps} />
-    </materialContext>
+    </MaterialContext>
   ) 
 }
 

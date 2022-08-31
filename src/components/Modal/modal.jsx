@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
 import React from "react";
 import { useContext } from "react";
-import { materialsContext } from "../../index";
+import { materialsContext } from "../../pages/Home/index";
 import { Response } from "../../types/response";
 
 const Modal = (props) => {

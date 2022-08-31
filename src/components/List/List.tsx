@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { materialsContext } from "../../index";
+import { materialsContext } from "../../pages/Home/index";
 import { materials } from "../../types/materials";
 import { Response } from "../../types/response";
 import Modal from "../Modal/modal";

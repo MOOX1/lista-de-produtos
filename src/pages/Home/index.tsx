@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import List from "./components/List/List";
-import { Response } from "./types/response";
-import Search from "./components/search/Seach";
-import Modal from "./components/Modal/modal";
+import List from "../../components/List/List";
+import { Response } from "../../types/response";
+import Search from "../../components/search/Seach";
+import Modal from "../../components/Modal/modal";
 
 export const materialsContext = React.createContext<Response>({});
 
